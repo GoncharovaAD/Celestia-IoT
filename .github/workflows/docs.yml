@@ -23,6 +23,7 @@ jobs:
 
       - name: Install MkDocs Material
         run: pip install mkdocs-material
+        run: pip install mkdocs-mermaid2-plugin
 
       - name: Deploy documentation
         run: mkdocs gh-deploy --force
