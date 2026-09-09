@@ -3,6 +3,7 @@ site_description: Open-source space and environmental monitoring station
 site_author: Anna Goncharova
 
 theme: material
+favicon: img/favicon.ico
 
 markdown_extensions:
   - pymdownx.superfences:
