@@ -1,0 +1,16 @@
+site_name: Celestia-IoT
+site_description: Open-source space and environmental monitoring station
+site_author: Anna Goncharova
+
+theme: readthedocs
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Architecture: architecture.md
+  - Data Sources: data-sources.md
+  - API: api.md
+  - Troubleshooting: troubleshooting.md
+
+plugins:
+  - search
