@@ -22,15 +22,11 @@ The project combines embedded systems, data engineering and data science.
 
 ## Architecture
 
-```text
-ESP32
-  ↓
-FastAPI
-  ↓
-PostgreSQL
-  ↓
-dbt
-  ↓
-Analytics / ML
-  ↓
-Dashboard
+```mermaid
+graph LR
+    ESP32-->FastAPI;
+    FastAPI-->PostgreSQL;
+    PostgreSQL-->dbt;
+    dbt-->Analytics;
+    Analytics--->Dashboard
+```
