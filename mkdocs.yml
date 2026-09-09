@@ -4,7 +4,31 @@ site_author: Anna Goncharova
 
 theme: 
   name: material
+  features:
+    - navigation.top
+    - navigation.sections
   favicon: img/favicon.ico
+  icon:
+    logo: material/weather-lightning
+ 
+  palette:
+    # ☀️ Дневная тема
+  - media: "(prefers-color-scheme: light)"
+    scheme: default
+    primary: blue    # Обязательно через дефис!
+    accent: blue
+    toggle:
+      icon: material/weather-sunny
+      name: Dark mode
+
+    # 🌙 Космическая тема
+  - media: "(prefers-color-scheme: dark)"
+    scheme: slate
+    primary: indigo   # Обязательно через дефис!
+    accent: indigo     # Обязательно через дефис!
+    toggle:
+      icon: material/weather-night
+      name: Light mode
 
 markdown_extensions:
   - pymdownx.superfences:
@@ -23,3 +47,5 @@ nav:
 
 plugins:
   - search
+
+
