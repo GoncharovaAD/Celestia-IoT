@@ -15,3 +15,5 @@ nav:
 plugins:
   - search
   - mermaid2
+extra_javascript:
+  - https://unpkg.com
