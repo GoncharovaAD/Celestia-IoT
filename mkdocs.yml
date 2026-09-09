@@ -2,7 +2,7 @@ site_name: Celestia-IoT
 site_description: Open-source space and environmental monitoring station
 site_author: Anna Goncharova
 
-theme: readthedocs
+theme: material
 
 nav:
   - Home: index.md
@@ -14,6 +14,3 @@ nav:
 
 plugins:
   - search
-  - mermaid2
-extra_javascript:
-  - https://unpkg.com
