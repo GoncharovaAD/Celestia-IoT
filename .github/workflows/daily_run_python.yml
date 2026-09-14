@@ -39,8 +39,8 @@ jobs:
         git add .
         
         if git diff-index --quiet HEAD; then
-          echo "Нет новых данных погоды"
+          echo "No weather data"
         else
-          git commit -m "Обновление данных погоды [skip ci]"
+          git commit -m "Automated weather data update [skip ci]"
           git push
         fi
