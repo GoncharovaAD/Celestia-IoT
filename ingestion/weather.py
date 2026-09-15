@@ -6,10 +6,16 @@ from pathlib import Path
 import requests
 from dotenv import load_dotenv
 
+import psycopg
+from psycopg.types.json import Jsonb
+
 
 load_dotenv()
 
 API_KEY = os.getenv("OPENWEATHER_API_KEY")
+
+if not API_KEY:
+    raise ValueError("OPENWEATHER_API_KEY is not set")
 
 url = "https://api.openweathermap.org/data/2.5/weather"
 
@@ -26,12 +32,46 @@ response.raise_for_status()
 
 data = response.json()
 
-timestamp = datetime.now(timezone.utc)
+collected_at = datetime.now(timezone.utc)
+
+
+# Collecting data into PostrgreSQL
+conn = psycopg.connect(
+    host=os.getenv("POSTGRES_HOST"),
+    port=os.getenv("POSTGRES_PORT"),
+    dbname=os.getenv("POSTGRES_DB"),
+    user=os.getenv("POSTGRES_USER"),
+    password=os.getenv("POSTGRES_PASSWORD"),
+)
+
+with conn:
+    with conn.cursor() as cur:
+        cur.execute(
+            """
+            INSERT INTO weather_raw (
+                collected_at,
+                source,
+                payload
+            )
+            VALUES (%s, %s, %s)
+            """,
+            (
+                collected_at,
+                "openweather",
+                Jsonb(data),
+            ),
+        )
+
+conn.close()
+
+print("Weather data inserted into PostgreSQL")
+
+# Saving JSON
 
 output_dir = Path("data/raw/weather")
 output_dir.mkdir(parents=True, exist_ok=True)
 
-filename = timestamp.strftime("%Y%m%d_%H%M%S.json")
+filename = collected_at.strftime("%Y%m%d_%H%M%S.json")
 
 output_file = output_dir / filename
 
