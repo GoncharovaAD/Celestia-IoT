@@ -34,7 +34,7 @@ The raw API response is intentionally preserved before any transformation. This 
 
 ## API
 
-The workflow uses the ** OpenWeather Current Weather API **.
+The workflow uses the **OpenWeather Current Weather API**.
 
 The request uses the following parameters:
 
