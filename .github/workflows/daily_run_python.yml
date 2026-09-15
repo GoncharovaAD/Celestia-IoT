@@ -28,7 +28,7 @@ jobs:
 
     - name: Run Python script
       env:
-        OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }} 
+        OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
       run: python ingestion/weather.py
 
     - name: Commit and Push JSON file
