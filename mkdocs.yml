@@ -41,8 +41,8 @@ nav:
   - Home: index.md
   - Getting Started: getting-started.md
   - Architecture: architecture.md
+  - Weather Data Collection (API): weather-data-collection.md
   - Data Sources: data-sources.md
-  - API: api.md
   - Troubleshooting: troubleshooting.md
 
 plugins:
