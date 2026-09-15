@@ -84,16 +84,6 @@ The complete API response is stored in its original JSON structure.
 Raw weather data is stored in:
 `data/raw/weather/`
 
-Example:
-
-`data/
-└── raw/
-    └── weather/
-        ├── 20260915_090000.json
-        ├── 20260915_100000.json
-        ├── 20260915_110000.json
-        └── ...`
-
 The `raw` directory contains data exactly as it was received from the external API, without analytical transformations.
 
 ## JSON Filename Convention
