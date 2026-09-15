@@ -35,7 +35,7 @@ data = response.json()
 collected_at = datetime.now(timezone.utc)
 
 
-# Collecting data into PostrgreSQL
+# Collecting data into PostrgreSQL (in future)
 POSTGRES_HOST = os.getenv("POSTGRES_HOST")
 
 if POSTGRES_HOST:
@@ -69,7 +69,11 @@ if POSTGRES_HOST:
 
 # Saving JSON
 
-output_dir = Path("data/raw/weather")
+if os.getenv("GITHUB_ACTIONS") == "true":
+    output_dir = Path("data/samples/weather")
+else:
+    output_dir = Path("data/raw/weather")
+    
 output_dir.mkdir(parents=True, exist_ok=True)
 
 filename = collected_at.strftime("%Y%m%d_%H%M%S.json")
