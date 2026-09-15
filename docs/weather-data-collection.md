@@ -47,11 +47,12 @@ The API key is stored in an environment variable and is never committed to the r
 
 `OPENWEATHER_API_KEY=your_api_key`
 
-The Python script loads the key from the `.env` file.
+Local execution: API key from `.env`  
+GitHub Actions: API key from GitHub Secrets
 
 ## Collection Frequency
 
-The workflow is designed to run once per hour.
+The workflow is scheduled to run four times per day. 
 
 Each execution creates a new raw JSON file containing the weather observation collected at that time.
 
