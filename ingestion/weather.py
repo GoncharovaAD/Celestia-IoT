@@ -36,35 +36,36 @@ collected_at = datetime.now(timezone.utc)
 
 
 # Collecting data into PostrgreSQL
-conn = psycopg.connect(
-    host=os.getenv("POSTGRES_HOST"),
-    port=os.getenv("POSTGRES_PORT"),
-    dbname=os.getenv("POSTGRES_DB"),
-    user=os.getenv("POSTGRES_USER"),
-    password=os.getenv("POSTGRES_PASSWORD"),
-)
+POSTGRES_HOST = os.getenv("POSTGRES_HOST")
 
-with conn:
-    with conn.cursor() as cur:
-        cur.execute(
-            """
-            INSERT INTO weather_raw (
-                collected_at,
-                source,
-                payload
+if POSTGRES_HOST:
+    conn = psycopg.connect(
+        host=POSTGRES_HOST,
+        port=os.getenv("POSTGRES_PORT", "5432"),
+        dbname=os.getenv("POSTGRES_DB"),
+        user=os.getenv("POSTGRES_USER"),
+        password=os.getenv("POSTGRES_PASSWORD"),
+    )
+
+    with conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                """
+                INSERT INTO weather_raw (
+                    collected_at,
+                    source,
+                    payload
+                )
+                VALUES (%s, %s, %s)
+                """,
+                (
+                    collected_at,
+                    "openweather",
+                    Jsonb(data),
+                ),
             )
-            VALUES (%s, %s, %s)
-            """,
-            (
-                collected_at,
-                "openweather",
-                Jsonb(data),
-            ),
-        )
 
-conn.close()
-
-print("Weather data inserted into PostgreSQL")
+    conn.close()
 
 # Saving JSON
 
