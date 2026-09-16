@@ -148,8 +148,8 @@ To check the workflow status:
 A successful run should show a completed workflow and a newly generated weather data file.
 
 If the workflow fails, the logs can be used to identify the problem, for example:
-- missing environment variable
-- invalid API key
-- Python dependency error
-- HTTP/API error
-- file system error
+- missing environment variable 
+- invalid API key 
+- Python dependency error 
+- HTTP/API error 
+- file system error 
