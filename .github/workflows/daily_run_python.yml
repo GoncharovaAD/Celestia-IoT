@@ -2,7 +2,7 @@ name: Scheduled Weather Script
 
 on:
   schedule:
-    - cron: '00 09,15,21,03 * * *'
+    - cron: '00 00,06,12,18 * * *'
   workflow_dispatch:
 
 jobs:
