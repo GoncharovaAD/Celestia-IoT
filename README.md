@@ -38,6 +38,3 @@ feature engineering → correlations → time series → ML
 
 IOT
 ESP32 → AHT20/BMP280 → telemetry → database
-
-
-```
