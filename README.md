@@ -1,8 +1,10 @@
 # 🛰️ Celestia-IoT
 
-Celestia-IoT is a space-themed IoT and data engineering project built around a desktop monitoring terminal.
+Applied Meteorology | Scientific Python & Weather Data Engineering
 
-The project combines ESP32 sensors, external weather and space data, automated data ingestion, PostgreSQL, data transformations and future Data Science experiments.
+Celestia-IoT is an end-to-end environmental and space-data platform combining automated weather API ingestion, PostgreSQL/Supabase storage, SQL transformations, scientific Python analysis, and ESP32-based local sensing.
+
+The project explores meteorological observations, derived atmospheric variables, data quality, and the comparison of external weather data with local sensor measurements.
 
 ## Architecture
 
@@ -18,38 +20,24 @@ Weather APIs ─────┘                            │
                                 Analytics              ML
 ```
 
-## Current stack
-- ESP32
-- Python
-- PostgreSQL
-- SQL
-- GitHub Actions
-- MkDocs
-- dbt
-- Pandas / Scikit-learn
-
-## Current status
-
-The initial weather data pipeline is operational:
-
-```text
-OpenWeather API
-      ↓
-Python
-      ↓
-PostgreSQL
-```
 Weather data is collected automatically:
 
-- Local machine: 4 times per day
-- GitHub Actions: once per day
+- GitHub Actions: 4 times per day
 
-## Planned
 
-ESP32 sensor integration
-ISS and astronomy data
-dbt transformations
-Data quality checks
-Analytics dashboard
-ISS observation prediction
-Machine Learning experiments
+## Planned stack
+
+DATA ENGINEERING
+API → GitHub Actions → PostgreSQL/Supabase → dbt :heavy_check_mark:
+
+SCIENTIFIC PYTHON
+Pandas → NumPy → meteorological calculations
+
+DATA SCIENCE
+feature engineering → correlations → time series → ML
+
+IOT
+ESP32 → AHT20/BMP280 → telemetry → database
+
+
+```
